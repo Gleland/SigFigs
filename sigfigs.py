@@ -3,31 +3,31 @@ import numpy as np
 
 def sig_figs(number): #requries number to be entered as a string
 
-	if ('-' in number):	# deleting neg. sign, not important for sig figs and don't want to mess up character count
-		number = number.replace("-", "")
-	
-	sigs = len(number)	# number of characters in string, max amount of sigfigs possible
+        if ('-' in number):     # deleting neg. sign, not important for sig figs and don't want to mess up character count
+                number = number.replace("-", "")
+        
+        sigs = len(number)      # number of characters in string, max amount of sigfigs possible
 
-	if ('.' in number):
-		sigs -= 1
-	i = 0 
-	while i < len(number):
-		if (number[i] != '.'):	
-			if number[0] == '0':
-				sigs -= 1
-				number = number[1:]
-				sig_figs(number)
-			if number[-1] == '0':
-				if ('.' not in number):
-					sigs -= 1 
-					number = number[:-1]
-					sig_figs(number)
-				else:
-					break
-			else:
-				break
-		i += 1
-	return sigs
+        if ('.' in number):
+                sigs -= 1
+        i = 0 
+        while i < len(number):
+                if (number[i] != '.'):  
+                        if number[0] == '0':
+                                sigs -= 1
+                                number = number[1:]
+                                sig_figs(number)
+                        if number[-1] == '0':
+                                if ('.' not in number):
+                                        sigs -= 1 
+                                        number = number[:-1]
+                                        sig_figs(number)
+                                else:
+                                        break
+                        else:
+                                break
+                i += 1
+        return sigs
 def new_func(number):
     # have to accurately calculate sig figs before calculations are done
 
@@ -38,8 +38,8 @@ def new_func(number):
         # zeroes in front of a decimal are significant (100.)
         # zeroes after a non-zero without a decimal are not (1,200 == 2)
        isNegative = False 
-	if ('-' in number):	# deleting neg. sign, not important for sig figs and don't want to mess up character count
-		number = number.replace("-", "")
+        if ('-' in number):     # deleting neg. sign, not important for sig figs and don't want to mess up character count
+                number = number.replace("-", "")
                 isNegative = True 
         sigfigs = len(number)
         if ('.' is in number):
