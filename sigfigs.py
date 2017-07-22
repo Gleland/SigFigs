@@ -44,6 +44,8 @@ def new_func(number):
         sigfigs = len(number)
         if ('.' is in number):
             decimalIndex = number.index('.')
+        if ('.' is in number and number[0] != 0):
+            decimalIndex = number.index('.')
 
         for range(sigfigs):
             # iterate over each digist and adjust number of sig figs accordingly
