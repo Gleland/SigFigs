@@ -1,4 +1,4 @@
-This inspiration came from when I was in grad school, trying to finish my god awful data and error analysis assignments. Basically, how can you trust the computer (or programming language) to conserve whatver significant figure you have during a calculation? Here are the rules regarding sig figs, which can be found at [Wikipedia](https://en.wikipedia.org/wiki/Significant_figures) with more detail, but any Google search will yield the same results.
+This inspiration came from when I was in grad school, trying to finish my god awful error analysis assignments. Basically, how can you trust the computer (or programming language) to conserve whatver significant figure you have during a calculation? Here are the rules regarding sig figs, which can be found at [Wikipedia](https://en.wikipedia.org/wiki/Significant_figures) with more detail, but any Google search will yield the same results.
 
 
 
