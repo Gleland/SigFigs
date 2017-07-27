@@ -23,6 +23,7 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
  Running `test.py` should yield these results:
  
 |Input| Sig Figs|
+|---|---|
 |100.0| 4|
 |-100.0| 4|
 |1000| 1|
