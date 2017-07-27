@@ -4,7 +4,7 @@ This inspiration came from when I was in grad school, trying to finish my god aw
 
  Included in this repository are `sigfigs.py`, which has the code to count the number of significant figures in a number, and `test.py `, which will allow the user to run a test to confirm whether the code works in its method.
  
- 
+NOTE: When using this code, the number of interest must be entered as count_sigfigs('0.0670') and not count_sigfigs(0.670), otherwise python will strip the traling zero and result in an incorrect answer. Any thoughts or suggestion on how to avoid this please send me an email at garrett.leland.thompson@gmail, I would very much welcome any feedback!
 
 
 ## Rules for Determining Significant Figures
