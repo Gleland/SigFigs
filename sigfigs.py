@@ -1,68 +1,78 @@
-import numpy as np
+###################
+# Garrett Thompson
+# garrett.leland.thompson@gmail.com
+# Sig fig calculator
+# github.com/Gleland/SigFigs
+###################
 
 
-def sig_figs(number): #requries number to be entered as a string
-
-        if ('-' in number):     # deleting neg. sign, not important for sig figs and don't want to mess up character count
-                number = number.replace("-", "")
-        
-        sigs = len(number)      # number of characters in string, max amount of sigfigs possible
-
-        if ('.' in number):
-                sigs -= 1
-        i = 0 
-        while i < len(number):
-                if (number[i] != '.'):  
-                        if number[0] == '0':
-                                sigs -= 1
-                                number = number[1:]
-                                sig_figs(number)
-                        if number[-1] == '0':
-                                if ('.' not in number):
-                                        sigs -= 1 
-                                        number = number[:-1]
-                                        sig_figs(number)
-                                else:
-                                        break
-                        else:
-                                break
-                i += 1
-        return sigs
-def new_func(number):
-    # have to accurately calculate sig figs before calculations are done
-
-        # non zero numbers are significant
-        # zeroes between non zeroes are significant (101,202, etc)
-        # zeroes before the first non-zero digits are not significant (0.001,020, etc)
-        # zeroes after the decimal *and* after a non-zero digit are significant (3.200 == 4)
-        # zeroes in front of a decimal are significant (100.)
-        # zeroes after a non-zero without a decimal are not (1,200 == 2)
-       isNegative = False 
-        if ('-' in number):     # deleting neg. sign, not important for sig figs and don't want to mess up character count
-                number = number.replace("-", "")
-                isNegative = True 
-        sigfigs = len(number)
-        if ('.' is in number):
-            decimalIndex = number.index('.')
-        if ('.' is in number and number[0] != 0):
-            decimalIndex = number.index('.')
-
-        for range(sigfigs):
-            # iterate over each digist and adjust number of sig figs accordingly
+######################################
+# Rules for Significant Figures
+# non zero numbers are significant
+# zeroes between non zeroes are significant
+# zeroes before first non-zero digits are not significant
+# zeroes after decimal *and* after a non-zero digit are significant
+# zeroes in front of a decimal are significant (100.)
+# zeroes after a non-zero without a decimal are not (1,200 == 2)
+######################################
 
 
+def count_sigfigs(number):
 
+    # deleting neg. sign, not important for sig figs
+    if ('-' in str(number)):     
+        number = str(number).replace("-", "")
+        isNegative = True 
+    numb_list = list(str(number))
 
-print 'sig_figs(100.00) ', sig_figs('100.00')
-print 'sig_figs(-100.00) ',sig_figs('-100.00')
-print 'sig_figs(1000) ',sig_figs("1000")
-print 'sig_figs(010001) ',sig_figs('010001')
-print 'sig_figs(01000.) ',sig_figs('01000.')
-print 'sig_figs(01000.0) ',sig_figs('01000.0')
-print 'sig_figs(0.002) ',sig_figs('0.002')
-print 'sig_figs(0.0020) ',sig_figs('0.0020')
-print 'sig_figs(0.00203) ',sig_figs('0.00203')
-print 'sig_figs(1203450) ',sig_figs('1203450')
+    if '.' in numb_list:
+        decimal_location = numb_list.index('.')
+        numb_list[decimal_location]='0'
+        return has_decimal(numb_list,decimal_location)
+    if '.' not in numb_list:
+        return no_decimal(numb_list)
+    else:
+        print("Something broke")
+
+def has_decimal(numb_list,decimal_location):
+
+    for index,digit in enumerate(numb_list):
+        if  digit !='0': 
+            first_non_zero_location = index
+            # First nonzero found, no need to keep iterating
+            break
+    if first_non_zero_location < decimal_location:
+        # first non zero before decimal, all digits after are signficant
+        #number of digits after 1st nonzero and excluding the decimal point.
+        return len(numb_list)-first_non_zero_location-1
+
+    if first_non_zero_location > decimal_location:
+        # anything after the first NZ is significant
+        return len(numb_list) - first_non_zero_location 
+
+def no_decimal(numb_list):
+
+    for index,digit in enumerate(numb_list):
+        if  digit !='0': 
+            first_non_zero_location = index
+            # First nonzero found, no need to keep iterating
+            break
+
+    for index, digit in reversed(list(enumerate(numb_list))):
+        if digit !='0':
+            last_non_zero_location = index
+            break
+
+    #calculate number of digits between non zeros, inclusive
+    return last_non_zero_location - first_non_zero_location + 1
 
 
 
+
+
+test_list2=['100.0','-100.0','1000','01000.','01000.0','0.002','0.0020','0.00203','1203450']
+test_list=['5420','-0.006700','0.06540','009009','90090']
+for test in test_list: 
+    print(repr(test),count_sigfigs(test))
+for test in test_list2: 
+    print(repr(test),count_sigfigs(test))
