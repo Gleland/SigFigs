@@ -30,7 +30,7 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
 |01000. | 4| -0.006700| 4|
 |01000.0| 5| 0.06540  | 4|
 |0.002  | 1| 009009.  | 4|
-|0.0020 | 2| 90090.   | 4|
+|0.0020 | 2| 90090.   | 5|
 
 
 
