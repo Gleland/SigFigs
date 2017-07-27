@@ -18,6 +18,24 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
  
  
  
+ ## Test script 
  
+ Running `test.py` should yield these results:
  
+|Input| Sig Figs|
+|100.0| 4|
+|-100.0| 4|
+|1000| 1|
+|01000.| 4|
+|01000.0| 5|
+|0.002| 1|
+|0.0020| 2|
+|0.00203| 3|
+|1203450| 6|
+|5420| 3|
+|-0.006700| 4|
+|0.06540| 4|
+|009009| 4|
+|90090| 4|
+~
 
