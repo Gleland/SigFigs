@@ -24,7 +24,7 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
  
 |Input| Sig Figs|Input |Sig Figs|
 |---|---|---|---|
-|100.0  | 4| 0.00203. | 3|
+|100.0  | 4| 0.00203  | 3|
 |-100.0 | 4| 1203450  | 6|
 |1000   | 1| 5420     | 3|
 |01000. | 4| -0.006700| 4|
