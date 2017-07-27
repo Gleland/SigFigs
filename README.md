@@ -39,9 +39,9 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
 
 Include this in your code to use sigfigs.py. Make sure the file is in the same directory as your code.
 
-`import sigfigs`
+`import sigfigs as sf`
 
-To use the code and count sig figs, just use `count_sigfigs('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
+To use the code and count sig figs, just use `sf.count_sigfigs('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
 
 ~
 
