@@ -4,7 +4,7 @@ This inspiration came from when I was in grad school, trying to finish my god aw
 
  Included in this repository are `sigfigs.py`, which has the code to count the number of significant figures in a number, and `test.py `, which will allow the user to run a test to confirm whether the code works in its method.
  
-NOTE: When using this code, the number of interest must be entered as count_sigfigs('0.0670') and not count_sigfigs(0.670), otherwise python will strip the traling zero and result in an incorrect answer. Any thoughts or suggestion on how to avoid this please send me an email at garrett.leland.thompson@gmail, I would very much welcome any feedback!
+NOTE: When using this code, the number of interest must be entered as count_sigfigs('0.0670') and not count_sigfigs(0.670), otherwise python will strip the traling zero and result in an incorrect answer. Any thoughts or suggestion on how to avoid this please send me an email at _garrett.leland.thompson@gmail.com_, I would very much welcome any feedback!
 
 
 ## Rules for Determining Significant Figures
@@ -22,21 +22,21 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
  
  Running `test.py` should yield these results:
  
-|Input| Sig Figs|
-|---|---|
-|100.0| 4|
-|-100.0| 4|
-|1000| 1|
-|01000.| 4|
-|01000.0| 5|
-|0.002| 1|
-|0.0020| 2|
-|0.00203| 3|
-|1203450| 6|
-|5420| 3|
-|-0.006700| 4|
-|0.06540| 4|
-|009009| 4|
-|90090| 4|
+|Input| Sig Figs|Input Sig Figs|
+|---|---|---|---|
+|100.0| 4| |0.00203| 3|
+|-100.0| 4| |1203450| 6|
+|1000| 1| |5420| 3|
+|01000.| 4| |-0.006700| 4|
+|01000.0| 5| |0.06540| 4|
+|0.002| 1| |009009| 4|
+|0.0020| 2| |90090| 4|
+
+
+
+
+
+
+
 ~
 
