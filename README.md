@@ -18,7 +18,7 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
  
  
  
- ## Test script 
+## Test script 
  
  Running `test.py` should yield these results:
  
@@ -35,8 +35,13 @@ Here are the rules regarding sig figs, which can be found at [Wikipedia](https:/
 
 
 
+## Using the code
 
+Include this in your code to use sigfigs.py. Make sure the file is in the same directory as your code.
 
+`import sigfigs`
+
+To use the code and count sig figs, just use `count_sigfigs('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
 
 ~
 
