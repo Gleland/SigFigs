@@ -70,9 +70,3 @@ def no_decimal(numb_list):
 
 
 
-test_list2=['100.0','-100.0','1000','01000.','01000.0','0.002','0.0020','0.00203','1203450']
-test_list=['5420','-0.006700','0.06540','009009','90090']
-for test in test_list: 
-    print(repr(test),count_sigfigs(test))
-for test in test_list2: 
-    print(repr(test),count_sigfigs(test))
