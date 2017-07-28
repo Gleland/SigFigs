@@ -68,5 +68,29 @@ def no_decimal(numb_list):
 
 
 
+def sf_operation(number1,number2,operation):
+
+    if (operation == '*') or (operation == '/'):
+        #return value with smallest sig figs
+        sf1,sf2 = count_sigfigs(number1),count_sigfigs(number2)
+        sigfig = min(sf1,sf2)
+        evaluation = eval(number1+operation+number2)
+        return "%.*e" %(sigfig-1,evaluation) 
+    elif operation == '+' or (operation == '-'):
+        #return value with fewest decimal places 
+
+        if ("." in number1) and ("." in number2):
+            temp1,temp2 = number1.split("."),number2.split(".")
+            dec1,dec2 = len(temp1[-1]),len(temp2[-1])
+            min_dec = min(dec1,dec2)
+        else:
+            min_dec=0
+        # if this ^^ isn't met, then at least one number doesn't have a decimal
+        evaluation = eval(number1+operation+number2)
+        return "%.*f" %(min_dec,evaluation) 
+        #return value with fewest decimal places
+        
+    else:
+        print("Not a valid operation!")
 
 
