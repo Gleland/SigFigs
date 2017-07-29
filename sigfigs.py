@@ -17,8 +17,8 @@
 ######################################
 
 
-def count_sigfigs(number):
-
+def sfCount(number):
+    number = str(number).lower()
     # deleting neg. sign, not important for sig figs
     if ('-' in str(number)):     
         number = str(number).replace("-", "")
@@ -28,9 +28,9 @@ def count_sigfigs(number):
     if '.' in numb_list and 'e' not in numb_list:
         decimal_location = numb_list.index('.')
         numb_list[decimal_location]='0'
-        return has_decimal(numb_list,decimal_location)
+        return hasDecimal(numb_list,decimal_location)
     elif '.' not in numb_list:
-        return no_decimal(numb_list)
+        return noDecimal(numb_list)
     elif 'e' in numb_list:
         # exponential notation
         print("here!")
@@ -39,7 +39,7 @@ def count_sigfigs(number):
     else:
         print("Something broke")
 
-def has_decimal(numb_list,decimal_location):
+def hasDecimal(numb_list,decimal_location):
 
     for index,digit in enumerate(numb_list):
         if  digit !='0': 
@@ -55,7 +55,7 @@ def has_decimal(numb_list,decimal_location):
         # anything after the first NZ is significant
         return len(numb_list) - first_non_zero_location 
 
-def no_decimal(numb_list):
+def noDecimal(numb_list):
 
     for index,digit in enumerate(numb_list):
         if  digit !='0': 
@@ -73,7 +73,7 @@ def no_decimal(numb_list):
 
 
 
-def sf_mult(number1,number2,operation):
+def sfMult(number1,number2,operation):
         #return value with smallest sig figs
         sf1,sf2 = count_sigfigs(number1),count_sigfigs(number2)
         sigfig = min(sf1,sf2)
@@ -108,11 +108,16 @@ def sf_mult(number1,number2,operation):
 
         return answer
 
-def sf_add(number1,number2,operation):
+def sfAdd(number1,number2,operation):
+        number1,number2 = str(number1).lower(),str(number2).lower()
+        numb1,numb2 = number1,number2
         #return value with fewest decimal places 
-
+        if "e" in number1: 
+            numb1, _ = number1.split("e")
+        if "e" in number2:
+            numb2, _ = number2.split("e")
         if ("." in number1) and ("." in number2):
-            temp1,temp2 = number1.split("."),number2.split(".")
+            temp1,temp2 = numb1.split("."),numb2.split(".")
             dec1,dec2 = len(temp1[-1]),len(temp2[-1])
             min_dec = min(dec1,dec2)
         else:
