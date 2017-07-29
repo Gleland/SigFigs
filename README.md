@@ -41,7 +41,7 @@ Include this in your code to use sigfigs.py. Make sure the file is in the same d
 
 `import sigfigs as sf`
 
-To use the code and count sig figs, just use `sf.count_sigfigs('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
-
+To use the code and count sig figs, just use `sf.sfCount('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
+Additionall, this code can be used to perform operations and adhere to the rules of preserving sigfigs. After importing the file into your code just add `sf.sfCalc("parameter1","parameter2","operation"), where parameter1 and 2 are numbers to be added/subtracted/multiplied/divided and operation is one of "*","/"","+","-". This will yield a string result of the answer in decimal form.
 ~
 
