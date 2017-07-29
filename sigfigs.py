@@ -25,12 +25,17 @@ def count_sigfigs(number):
         isNegative = True 
     numb_list = list(str(number))
 
-    if '.' in numb_list:
+    if '.' in numb_list and 'e' not in numb_list:
         decimal_location = numb_list.index('.')
         numb_list[decimal_location]='0'
         return has_decimal(numb_list,decimal_location)
-    if '.' not in numb_list:
+    elif '.' not in numb_list:
         return no_decimal(numb_list)
+    elif 'e' in numb_list:
+        # exponential notation
+        print("here!")
+        return numb_list.index('e')-1
+        #-1 for decimal place
     else:
         print("Something broke")
 
