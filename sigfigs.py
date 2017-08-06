@@ -122,6 +122,7 @@ def sfMultDiv(number1,number2,operation):
     evaluation = eval(number1+operation+number2)
     exp_string = "%.*e" %(sigfig-1,evaluation) 
     answer = exp_string
+    # VVVV doesn't quite work yet, trying to convert exp to decimal form
     # if "." in exp_string : 
     #     exp_string = exp_string.replace(".","")
     # front_str,back_str = exp_string.split('e')
