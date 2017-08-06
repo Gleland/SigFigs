@@ -185,8 +185,15 @@ def sfRound(number,sigfigs):
     OUTPUTS: number with correct sig figs
     """
     multiple = "1." + (int(sigfigs)-1)*"0"
+    sf1,sf2 = sfCount(number),sfCount(multiple)
+    if sf1 < sf2:
+        evaluation = eval(number+"*"+multiple)
+        exp_string = "%.*e" %(sf2-1,evaluation) 
+        answer = exp_string
+        return answer
+    else:
+        return sfMultDiv(number,multiple,"*")
     # minus one to account for decimal place
-    return sfMultDiv(number,multiple,"*")
 
 
 
