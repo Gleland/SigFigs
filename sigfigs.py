@@ -97,7 +97,7 @@ def sfCalc(number1,number2,operation):
     OUTPUTS: calculated answer to correct sig figs
     """
     if operation == "*" or operation == "/":
-        return sfMultDIv(number1,number2,operation)
+        return sfMultDiv(number1,number2,operation)
     elif operation == "+" or operation == "-":
         return sfAddSub(number1,number2,operation)
     else:
@@ -121,26 +121,25 @@ def sfMultDiv(number1,number2,operation):
     sigfig = min(sf1,sf2)
     evaluation = eval(number1+operation+number2)
     exp_string = "%.*e" %(sigfig-1,evaluation) 
-    if "." in exp_string : 
-        exp_string = exp_string.replace(".","")
-    front_str,back_str = exp_string.split('e')
-    exponent = int(back_str)
-    if exponent == 0:
-        # no exponent, can truncate
-        return front_str
-    elif exponent > 0:
-        if exponent > len(front_str):
-            # +1 for decimal place
-            answer = front_str+(exponent-len(front_str)+1)*"0" 
-            if sfCount(answer) != sigfig:
-                answer = "%.*e" %(sigfig-1,evaluation) 
-        elif exponent < len(front_str):
-            # have to add decimal back in
-            answer = front_str[:1+exponent]+"."+front_str[1+exponent:]
-        elif exponent == len(front_str):
-            answer = front_str + "." 
-    elif exponent < 0:
-        answer =  "0." + (abs(exponent)-1)*"0" + front_str
+    answer = exp_string
+    # if "." in exp_string : 
+    #     exp_string = exp_string.replace(".","")
+    # front_str,back_str = exp_string.split('e')
+    # exponent = int(back_str)
+    # if exponent == 0:
+    #     # no exponent, can truncate
+    #     return front_str
+    # elif exponent > 0:
+    #     if exponent > len(front_str):
+    #         # +1 for decimal place
+    #         answer = front_str+(exponent-len(front_str)+1)*"0" 
+    #     elif exponent < len(front_str):
+    #         # have to add decimal back in
+    #         answer = front_str[:1+exponent]+"."+front_str[1+exponent:]
+    #     elif exponent == len(front_str):
+    #         answer = front_str + "." 
+    # elif exponent < 0:
+    #     answer =  "0." + (abs(exponent)-1)*"0" + front_str
 
     return answer
 
@@ -184,11 +183,6 @@ def sfRound(number,sigfigs):
             sigfigs
     OUTPUTS: number with correct sig figs
     """
-    number=str(number).lower()
-    if 'e' in number:
-        front_str,back_str = exp_string.split('e')
-        exponent = int(back_str)
-    # shift 6.0E6 -> 6.0e6
     multiple = "1." + (int(sigfigs)-1)*"0"
     # minus one to account for decimal place
     return sfMultDiv(number,multiple,"*")
