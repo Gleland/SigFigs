@@ -103,6 +103,24 @@ def sfCalc(number1,number2,operation):
     else:
         print("Uh oh, check your operator parameter and try again")
 
+
+
+def sfMult(number1,number2):
+    """ 
+    Determines multiplication operations
+    while conserving sig figs
+    """
+    return sfMultDiv(number1,number2,"*")
+
+
+def sfDiv(number1,number2):
+    """ 
+    Determines division operations
+    while conserving sig figs
+    """
+    return sfMultDiv(number1,number2,"/")
+
+
 def sfMultDiv(number1,number2,operation):
     """
     Determines multiplication and division operations
@@ -143,6 +161,23 @@ def sfMultDiv(number1,number2,operation):
     #     answer =  "0." + (abs(exponent)-1)*"0" + front_str
 
     return answer
+
+
+def sfAdd(number1,number2):
+    """ 
+    Determines addtion operations
+    while conserving sig figs
+    """
+    return sfAddSub(number1,number2,"+")
+
+
+def sfSub(number1,number2):
+    """ 
+    Determines subtraction operations
+    while conserving sig figs
+    """
+    return sfMultDiv(number1,number2,"-")
+
 
 def sfAddSub(number1,number2,operation):
     """
@@ -194,14 +229,5 @@ def sfRound(number,sigfigs):
     else:
         return sfMultDiv(number,multiple,"*")
     # minus one to account for decimal place
-
-
-
-
-
-
-
-
-
 
 
