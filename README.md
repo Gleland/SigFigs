@@ -46,8 +46,3 @@ To use the code and count sig figs, just use `sf.sfCount('0.670')` or whatever n
 Additionally, this code can be used to perform operations and adhere to the rules of preserving sigfigs. After importing the file into your code just add `sf.sfMult("parameter1","parameter2")` for multiplying, `sf.sfDiv("param1","param2")` for dividing, `sf.sfAdd("p1","p2")` for adding, and `sf.sfSub("p1","p2")` for dividing.
 
 To count sig figs, use `sf.sfCount()`, or to round sig figs, use `sf.sfRound(input, number)`.
-
-
-, where parameter1 and 2 are numbers to be added/subtracted/multiplied/divided and operation is one of `"*"`, `"/"`, `"+"`,`"-"`. This will yield a string result of the answer in decimal form.
-~
-
