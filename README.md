@@ -4,7 +4,7 @@ This inspiration came from when I was in grad school, trying to finish my error 
 
  Included in this repository are `sigfigs.py`, which has the code to count the number of significant figures in a number, and `test.py `, which will allow the user to run a test to confirm whether the code works in its method.
  
-NOTE: When using this code, the number of interest must be entered as count_sigfigs('0.0670') and not count_sigfigs(0.670), otherwise python will strip the traling zero and result in an incorrect answer. Any thoughts or suggestion on how to avoid this please send me an email at _garrett.leland.thompson@gmail.com_, I would very much welcome any feedback!
+NOTE: When using this code, the number of interest must be entered as sfCount('0.0670') and not sfCount(0.670), otherwise python will strip the traling zero and result in an incorrect answer. Any thoughts or suggestion on how to avoid this please send me an email at _garrett.leland.thompson@gmail.com_, I would very much welcome any feedback!
 
 
 ## Rules for Determining Significant Figures
@@ -43,6 +43,11 @@ Include this in your code to use sigfigs.py. Make sure the file is in the same d
 
 To use the code and count sig figs, just use `sf.sfCount('0.670')` or whatever number desired. Make sure to enclose the number in quotes, or the result may be incorrect.
 
-Additionally, this code can be used to perform operations and adhere to the rules of preserving sigfigs. After importing the file into your code just add `sf.sfCalc("parameter1","parameter2","operation")`, where parameter1 and 2 are numbers to be added/subtracted/multiplied/divided and operation is one of `"*"`, `"/"`, `"+"`,`"-"`. This will yield a string result of the answer in decimal form.
+Additionally, this code can be used to perform operations and adhere to the rules of preserving sigfigs. After importing the file into your code just add `sf.sfMult("parameter1","parameter2")` for multiplying, `sf.sfDiv("param1","param2")` for dividing, `sf.sfAdd("p1","p2")` for adding, and `sf.sfSub("p1","p2")` for dividing.
+
+To count sig figs, use `sf.sfCount()`, or to round sig figs, use `sf.sfRound(input, number)`.
+
+
+, where parameter1 and 2 are numbers to be added/subtracted/multiplied/divided and operation is one of `"*"`, `"/"`, `"+"`,`"-"`. This will yield a string result of the answer in decimal form.
 ~
 
