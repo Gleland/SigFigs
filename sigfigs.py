@@ -24,12 +24,13 @@ def sfCount(number):
     INPUTS: number
     OUTPUTS: number of sig figs of input
     """
+    # converting E to e, otherwise breaks code
     number = str(number).lower()
     # deleting neg. sign, not important for sig figs
-    if ('-' in str(number)):     
-        number = str(number).replace("-", "")
+    if '-' in number:     
+        number = number.replace("-", "")
         isNegative = True 
-    numb_list = list(str(number))
+    numb_list = list(number)
 
     if '.' in numb_list and 'e' not in numb_list:
         decimal_location = numb_list.index('.')
@@ -56,15 +57,15 @@ def hasDecimal(numb_list,decimal_location):
     for index,digit in enumerate(numb_list):
         if  digit !='0': 
             first_non_zero_location = index
-            # First nonzero found, no need to keep iterating
+            # 1st NZ found, no need to keep iterating
             break
     if first_non_zero_location < decimal_location:
-        # first non zero before decimal, all digits after are signficant
-        #number of digits after 1st nonzero and excluding the decimal point.
+        # 1st NZ before decimal, all digits after are signficant
+        # number of digits after 1st NZ, excluding the decimal point.
         return len(numb_list)-first_non_zero_location-1
 
     if first_non_zero_location > decimal_location:
-        # anything after the first NZ is significant
+        # anything after the 1st NZ is significant
         return len(numb_list) - first_non_zero_location 
 
 def noDecimal(numb_list):
@@ -78,7 +79,7 @@ def noDecimal(numb_list):
     for index,digit in enumerate(numb_list):
         if  digit !='0': 
             first_non_zero_location = index
-            # First nonzero found, no need to keep iterating
+            # 1st NZ found, no need to keep iterating
             break
 
     for index, digit in reversed(list(enumerate(numb_list))):
@@ -86,7 +87,7 @@ def noDecimal(numb_list):
             last_non_zero_location = index
             break
 
-    #calculate number of digits between non zeros, inclusive
+    # calculate number of digits between non zeros, inclusive
     return last_non_zero_location - first_non_zero_location + 1
 
 def sfCalc(number1,number2,operation):
@@ -134,7 +135,7 @@ def sfMultDiv(number1,number2,operation):
             operation ("*" or "/")
     OUTPUTS: answer to calculation with correct sig figs
     """
-    #return value with smallest sig figs
+    # return value with smallest sig figs
     sf1,sf2 = sfCount(number1),sfCount(number2)
     sigfig = min(sf1,sf2)
     evaluation = eval(number1+operation+number2)
