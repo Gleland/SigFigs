@@ -50,3 +50,13 @@ def test_sigfigs_count():
     }
     for case, count in test_cases.items():
         assert(sf.count(case) == count)
+
+def test_sigfigs_round():
+    sf = sigfigs.SigFigs()
+    test_cases = [
+        {"inputs": ["20.0", 4], "answer": "2.000e+01"},
+        {"inputs": ["-012.83", 6], "answer": "-1.28300e+01"},
+        {"inputs": ["90090.", 3], "answer": "9.01e+04"},
+    ]
+    for case in test_cases:
+        assert(sf.round(*case["inputs"]) == case["answer"])

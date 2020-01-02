@@ -196,7 +196,7 @@ class SigFigs():
         # return value with fewest decimal places
 
 
-    def sfRound(number, sigfigs):
+    def round(self, number, sigfigs):
         """
         Round input number to given number of sig figs
 
@@ -205,12 +205,12 @@ class SigFigs():
         OUTPUTS: number with correct sig figs
         """
         multiple = "1." + (int(sigfigs)-1)*"0"
-        sf1, sf2 = sfCount(number), sfCount(multiple)
+        sf1, sf2 = self.count(number), self.count(multiple)
         if sf1 < sf2:
             evaluation = eval(number+"*"+multiple)
             exp_string = "%.*e" % (sf2-1, evaluation)
             answer = exp_string
             return answer
         else:
-            return sfMultDiv(number, multiple, "*")
+            return self.__multiplicative_calc(number, multiple, "*")
         # minus one to account for decimal place
