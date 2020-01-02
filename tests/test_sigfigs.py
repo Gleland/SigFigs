@@ -13,6 +13,7 @@ def test_sigfigs_subtract():
 def test_sigfigs_multiply():
     sf = sigfigs.SigFigs()
     test_cases = [
+            {"inputs": ["10.0", "1"], "answer": "1e+01"},
             {"inputs": ["0.00203", "0.8888"], "answer": "1.80e-03"},
             {"inputs": ["6.154","3.14"], "answer": "1.93e+01"}
     ]
@@ -22,6 +23,7 @@ def test_sigfigs_multiply():
 def test_sigfigs_divide():
     sf = sigfigs.SigFigs()
     test_cases = [
+            {"inputs": ["20.0", "4"], "answer": "5e+00"},
             {"inputs": ["01000.","-0.006700"], "answer": "-1.493e+05"},
             {"inputs": ["90090.","5420"], "answer": "1.66e+01"},
     ]
