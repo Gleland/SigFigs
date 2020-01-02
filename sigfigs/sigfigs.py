@@ -98,12 +98,12 @@ class SigFigs():
         return self.__multiplicative_calc(number1, number2, "*")
 
 
-    def sfDiv(number1, number2):
+    def divide(self, number1, number2):
         """
         Determines division operations
         while conserving sig figs
         """
-        return sfMultDiv(number1, number2, "/")
+        return self.__multiplicative_calc(number1, number2, "/")
 
 
     def __multiplicative_calc(self, number1, number2, operation):

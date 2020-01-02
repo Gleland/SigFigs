@@ -19,6 +19,15 @@ def test_sigfigs_multiply():
     for case in test_cases:
         assert(sf.multiply(*case["inputs"]) == case["answer"])
 
+def test_sigfigs_divide():
+    sf = sigfigs.SigFigs()
+    test_cases = [
+            {"inputs": ["01000.","-0.006700"], "answer": "-1.493e+05"},
+            {"inputs": ["90090.","5420"], "answer": "1.66e+01"},
+    ]
+    for case in test_cases:
+        assert(sf.divide(*case["inputs"]) == case["answer"])
+
 def test_sigfigs_count():
     sf = sigfigs.SigFigs()
     test_cases = {
