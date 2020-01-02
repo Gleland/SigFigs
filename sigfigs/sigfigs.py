@@ -28,7 +28,6 @@ class SigFigs():
         else:
             print("Something broke")
 
-
     def hasDecimal(self, numb_list, decimal_location):
         """
         Helper function for determining number of sig figs
@@ -52,7 +51,6 @@ class SigFigs():
             # anything after the 1st NZ is significant
             return len(numb_list) - first_non_zero_location
 
-
     def noDecimal(self, numb_list):
         """
         Helper function for determining number of sig figs
@@ -74,8 +72,7 @@ class SigFigs():
         # calculate number of digits between non zeros, inclusive
         return last_non_zero_location - first_non_zero_location + 1
 
-
-    def sfCalc(number1, number2, operation):
+    def __calc(self, number1, number2, operation):
         """
         Performs mathematical operation and retains sig figs
         INPUTS: number1,number2 (input numbers)
@@ -83,12 +80,11 @@ class SigFigs():
         OUTPUTS: calculated answer to correct sig figs
         """
         if operation == "*" or operation == "/":
-            return sfMultDiv(number1, number2, operation)
+            return self.__multiplicative_calc(number1, number2, operation)
         elif operation == "+" or operation == "-":
-            return sfAddSub(number1, number2, operation)
+            return self.__additive_calc(number1, number2, operation)
         else:
             print("Uh oh, check your operator parameter and try again")
-
 
     def multiply(self, number1, number2):
         """
@@ -97,14 +93,12 @@ class SigFigs():
         """
         return self.__multiplicative_calc(number1, number2, "*")
 
-
     def divide(self, number1, number2):
         """
         Determines division operations
         while conserving sig figs
         """
         return self.__multiplicative_calc(number1, number2, "/")
-
 
     def __multiplicative_calc(self, number1, number2, operation):
         """
@@ -147,7 +141,6 @@ class SigFigs():
 
         return answer
 
-
     def add(self, number1, number2):
         """
         Determines addtion operations
@@ -155,14 +148,12 @@ class SigFigs():
         """
         return self.__additive_calc(number1, number2, "+")
 
-
     def subtract(self, number1, number2):
         """
         Determines subtraction operations
         while conserving sig figs
         """
         return self.__additive_calc(number1, number2, "-")
-
 
     def __additive_calc(self, number1, number2, operation):
         """
@@ -194,7 +185,6 @@ class SigFigs():
         evaluation = eval(number1+operation+number2)
         return "%.*f" % (min_dec, evaluation)
         # return value with fewest decimal places
-
 
     def round(self, number, sigfigs):
         """
