@@ -1,4 +1,6 @@
-class SigFigs:
+
+class SigFigs():
+
     def sfCount(number):
         """
         Counts number of sig figs for a given number
@@ -146,12 +148,12 @@ class SigFigs:
         return answer
 
 
-    def sfAdd(number1, number2):
+    def add(self, number1, number2):
         """
         Determines addtion operations
         while conserving sig figs
         """
-        return sfAddSub(number1, number2, "+")
+        return self.__additive_calc(number1, number2, "+")
 
 
     def sfSub(number1, number2):
@@ -162,7 +164,7 @@ class SigFigs:
         return sfMultDiv(number1, number2, "-")
 
 
-    def sfAddSub(number1, number2, operation):
+    def __additive_calc(self, number1, number2, operation):
         """
         Determines addition and subtraction operations
         while conserving sig figs
