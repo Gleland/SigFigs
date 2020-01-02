@@ -156,12 +156,12 @@ class SigFigs():
         return self.__additive_calc(number1, number2, "+")
 
 
-    def sfSub(number1, number2):
+    def subtract(self, number1, number2):
         """
         Determines subtraction operations
         while conserving sig figs
         """
-        return sfMultDiv(number1, number2, "-")
+        return self.__additive_calc(number1, number2, "-")
 
 
     def __additive_calc(self, number1, number2, operation):

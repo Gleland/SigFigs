@@ -11,6 +11,9 @@ def test_sigfigs_add():
     sf = sigfigs.SigFigs()
     assert(sf.add("0.01","1") == '1')
 
+def test_sigfigs_subtract():
+    sf = sigfigs.SigFigs()
+    assert(sf.subtract("0.01","1") == '-1')
 
 def test_sigfigs_count():
     sf = sigfigs.SigFigs()
