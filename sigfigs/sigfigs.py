@@ -1,7 +1,7 @@
 
 class SigFigs():
 
-    def sfCount(number):
+    def count(self, number):
         """
         Counts number of sig figs for a given number
 
@@ -18,9 +18,9 @@ class SigFigs():
         if '.' in numb_list and 'e' not in numb_list:
             decimal_location = numb_list.index('.')
             numb_list[decimal_location] = '0'
-            return hasDecimal(numb_list, decimal_location)
+            return self.hasDecimal(numb_list, decimal_location)
         elif '.' not in numb_list:
-            return noDecimal(numb_list)
+            return self.noDecimal(numb_list)
         elif 'e' in numb_list:
             # exponential notation
             return numb_list.index('e')-1
@@ -29,7 +29,7 @@ class SigFigs():
             print("Something broke")
 
 
-    def hasDecimal(numb_list, decimal_location):
+    def hasDecimal(self, numb_list, decimal_location):
         """
         Helper function for determining number of sig figs
         the case when the input has a decimal
@@ -53,7 +53,7 @@ class SigFigs():
             return len(numb_list) - first_non_zero_location
 
 
-    def noDecimal(numb_list):
+    def noDecimal(self, numb_list):
         """
         Helper function for determining number of sig figs
             the case when the input has a decimal
