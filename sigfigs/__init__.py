@@ -1,1 +1,1 @@
-from sigifs import sigfigs
+from sigfigs import sigfigs
