@@ -18,9 +18,9 @@ class SigFigs():
         if '.' in numb_list and 'e' not in numb_list:
             decimal_location = numb_list.index('.')
             numb_list[decimal_location] = '0'
-            return self.hasDecimal(numb_list, decimal_location)
+            return self.__calc_with_decimals(numb_list, decimal_location)
         elif '.' not in numb_list:
-            return self.noDecimal(numb_list)
+            return self.__calc_without_decimals(numb_list)
         elif 'e' in numb_list:
             # exponential notation
             return numb_list.index('e')-1
@@ -28,7 +28,7 @@ class SigFigs():
         else:
             print("Something broke")
 
-    def hasDecimal(self, numb_list, decimal_location):
+    def __calc_with_decimals(self, numb_list, decimal_location):
         """
         Helper function for determining number of sig figs
         the case when the input has a decimal
@@ -51,7 +51,7 @@ class SigFigs():
             # anything after the 1st NZ is significant
             return len(numb_list) - first_non_zero_location
 
-    def noDecimal(self, numb_list):
+    def __calc_without_decimals(self, numb_list):
         """
         Helper function for determining number of sig figs
             the case when the input has a decimal
