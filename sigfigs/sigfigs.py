@@ -90,12 +90,12 @@ class SigFigs():
             print("Uh oh, check your operator parameter and try again")
 
 
-    def sfMult(number1, number2):
+    def multiply(self, number1, number2):
         """
         Determines multiplication operations
         while conserving sig figs
         """
-        return sfMultDiv(number1, number2, "*")
+        return self.__multiplicative_calc(number1, number2, "*")
 
 
     def sfDiv(number1, number2):
@@ -106,7 +106,7 @@ class SigFigs():
         return sfMultDiv(number1, number2, "/")
 
 
-    def sfMultDiv(number1, number2, operation):
+    def __multiplicative_calc(self, number1, number2, operation):
         """
         Determines multiplication and division operations
         while conserving sig figs
@@ -120,7 +120,7 @@ class SigFigs():
         OUTPUTS: answer to calculation with correct sig figs
         """
         # return value with smallest sig figs
-        sf1, sf2 = sfCount(number1), sfCount(number2)
+        sf1, sf2 = self.count(number1), self.count(number2)
         sigfig = min(sf1, sf2)
         evaluation = eval(number1+operation+number2)
         exp_string = "%.*e" % (sigfig-1, evaluation)

@@ -1,6 +1,7 @@
 import pytest
 from sigfigs import sigfigs
 
+
 def test_sigfigs_add():
     sf = sigfigs.SigFigs()
     assert(sf.add("0.01","1") == '1')
@@ -8,6 +9,15 @@ def test_sigfigs_add():
 def test_sigfigs_subtract():
     sf = sigfigs.SigFigs()
     assert(sf.subtract("0.01","1") == '-1')
+
+def test_sigfigs_multiply():
+    sf = sigfigs.SigFigs()
+    test_cases = [
+            {"inputs": ["0.00203", "0.8888"], "answer": "1.80e-03"},
+            {"inputs": ["6.154","3.14"], "answer": "1.93e+01"}
+    ]
+    for case in test_cases:
+        assert(sf.multiply(*case["inputs"]) == case["answer"])
 
 def test_sigfigs_count():
     sf = sigfigs.SigFigs()
